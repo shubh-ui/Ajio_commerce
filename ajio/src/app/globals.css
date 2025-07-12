@@ -1,2 +1,10 @@
 /* src/app/globals.css */
 @import "tailwindcss";
+
+:root {
+    --light: #FFFFFF;
+}
+
+body {
+    background-color: var(--light);
+}
