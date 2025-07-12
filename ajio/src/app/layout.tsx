@@ -1,10 +1,16 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import Navbar from './component/Navbar/Navbar'
-import { Inter, Roboto, Open_Sans } from 'next/font/google'
+import { Nunito_Sans, Raleway } from 'next/font/google'
 
 
-const roboto = Roboto({
+const raleway = Raleway({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+const nunito_sans = Nunito_Sans({
   weight: ['400', '700'],
   subsets: ['latin'],
   display: 'swap',
@@ -22,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={nunito_sans.className}>
         <Navbar />  
         {children}
         </body>
