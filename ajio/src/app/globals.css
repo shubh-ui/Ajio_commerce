@@ -42,6 +42,10 @@ body {
     text-transform: capitalize;
 }
 
+.info {
+    padding: 20px 0px;
+}
+
 .info-desc {
     text-align: left;
     font-family: SourceSansPro;
@@ -52,4 +56,58 @@ body {
     padding: 0 100px;
     margin-top: 6px;
     line-height: 1.3em;
+}
+
+.filter-container {
+    height: 60px;
+    border-top: 1px solid #e5e3e3;
+    border-bottom: 1px solid #e5e3e3;
+    background-color: #fff;
+    margin-bottom: 20px;
+    margin-top: 0;
+
+}
+
+.reactVirtualized__Grid {
+    box-sizing: border-box;
+    direction: ltr;
+    height: auto;
+    position: relative;
+    width: 1000px;
+    will-change: transform;
+    overflow: hidden auto;
+}
+
+.ReactVirtualized__Grid__innerScrollContainer {
+    width: auto;
+    /* height: 51030px; */
+    max-width: 970px;
+    max-height: 51030px;
+    overflow: hidden;
+    position: relative;
+}
+
+.Grid_five {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.rilrtl-products-list__item {
+    height: 405px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 194px;
+}
+
+.brand {
+        font-family: SourceSansPro;
+    color: #866528;
+    text-overflow: ellipsis;
+    font-weight: 100;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 6px;
 }

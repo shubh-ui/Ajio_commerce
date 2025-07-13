@@ -4,6 +4,7 @@ import { useState } from "react"
 import Container from "../component/container/Container"
 import FilterBar from "../component/FilterBar/FilterBar"
 import { data } from "../utils/data"
+import ProductCard from "../component/ProductCard/ProductCard"
 const page = () => {
     console.log(data)
     const [bigInfo, setBigInfo] = useState(false);
@@ -51,6 +52,24 @@ const page = () => {
                                 <a onClick={hadleInfo} style={{color: '#176d93;'}}>{bigInfo ? 'Show less' :'Show more'}</a>
                             </div>
                         </div>
+                    </div>
+                    <div className="filter-container">
+
+                    </div>
+                    <div className="main-containt">
+                                <div>
+                                    <div className="reactVirtualized__Grid">
+                                <div className="ReactVirtualized__Grid__innerScrollContainer Grid_five">
+                                        {
+                                            data.products.map((product,i) => {
+                                                return <div key={product.code} >
+                                                    <ProductCard product={product} />
+                                                </div>
+                                            })
+                                        }
+                                </div>
+                                    </div>
+                                </div>
                     </div>
                 </div>
             </div>
