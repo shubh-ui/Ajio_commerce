@@ -1,19 +1,31 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import Navbar from './component/Navbar/Navbar'
-import { Nunito_Sans, Raleway } from 'next/font/google'
+import { Nunito_Sans, Raleway, Roboto_Mono, Lora, Source_Serif_4, Roboto } from 'next/font/google'
 
 
-const raleway = Raleway({
+const roboto = Roboto({
   weight: ['400', '700'],
   subsets: ['latin'],
-  display: 'swap',
+  variable: '--font-roboto'
+})  
+
+const lora = Lora({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-lora'
 })
 
 const nunito_sans = Nunito_Sans({
   weight: ['400', '700'],
   subsets: ['latin'],
   display: 'swap',
+})
+
+const source_Serif_4 = Source_Serif_4({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-source_Serif_4'
 })
 
 export const metadata: Metadata = {
@@ -28,7 +40,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito_sans.className}>
+      <body className={`${source_Serif_4.variable} ${roboto.variable} ${lora.variable}`}>
         <Navbar />  
         {children}
         </body>
