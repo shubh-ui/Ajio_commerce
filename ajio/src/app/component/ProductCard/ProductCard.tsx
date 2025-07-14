@@ -5,10 +5,10 @@ import { BadgePercent, IndianRupeeIcon } from "lucide-react"
 const ProductCard = ({ product }: any) => {
     // console.log(truncateText(product.fnlColorVariantData.brandName))
     return (
-        <div className="w-[176px] flex flex-col gap-2.5">
-            <div>
-                <img style={{ objectFit: 'scale-down' }} src={product.fnlColorVariantData.outfitPictureURL} alt="" />
-
+        <div className="w-[172px] flex flex-col gap-2.5 cursor-pointer">
+            <div className="relative">
+                <img style={{ objectFit: 'scale-down' }} className="scale-100 hover:scale-105 transition-transform" src={product.fnlColorVariantData.outfitPictureURL} alt="" />
+                {(Number(product.averageRating) > 4 ) && <div className="absolute top-0 left-0 font-light text-[10px] m-2 p-1 bg-[#202020] text-[#fff] rounded-[6px]">BESTSELLER</div>}
             </div>
             <div className="flex flex-col items-center gap-2">
                 <div className="text-[13px] brand font-source_Serif">
