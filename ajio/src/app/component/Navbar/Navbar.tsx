@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Search, Heart, ShoppingBag, Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,44 +21,21 @@ const Navbar = () => {
         <div className="flex items-center w-[100%] justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-3xl font-bold text-gray-900 tracking-wider">
+            {/* <h1 className="text-3xl font-bold text-gray-900 tracking-wider">
               AJIO
-            </h1>
+            </h1> */}
+            <Image
+              src="/images/Ajio-Logo.svg"
+              alt="AJIO"
+              width={120}
+              height={120}
+            />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex justify-between items-baseline space-x-8">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-700 hover:text-gray-900 hover:font-bold px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Right side - Search, Auth, Icons */}
-          <div className="flex items-center space-x-4">
-            {/* Search Bar */}
-            <div className="hidden sm:block relative">
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search className="h-5 w-5 text-gray-400" />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Search AJIO"
-                  className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
-                />
-              </div>
-            </div>
-
+          <div className="hidden md:flex flex-col gap-6 ">
             {/* Auth Links */}
-            <div className="hidden lg:flex items-center space-x-4 text-sm">
+            <div className="hidden lg:flex items-center space-x-4 text-sm md:flex flex-row-reverse">
               <a href="#" className="text-gray-700 hover:text-gray-900">
                 Sign In
               </a>
@@ -66,48 +44,81 @@ const Navbar = () => {
                 Join AJIO
               </a>
             </div>
+            <div className='flex items-center gap-28'>
+              <div className="ml-10 flex justify-between items-baseline space-x-8">
+                {navItems.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-700 hover:text-gray-900 hover:font-bold px-3 py-2 text-sm font-normal transition-all font-source_Serif tracking-wide duration-200"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+              {/* Right side - Search, Auth, Icons */}
+              <div className="flex items-center space-x-4">
+                {/* Search Bar */}
+                <div className="hidden sm:block relative w-2xs">
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Search className="h-5 w-5 text-gray-400" />
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Search AJIO"
+                      className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-[#fffded] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-gray-500 focus:border-gray-500 sm:text-sm"
+                    />
+                  </div>
+                </div>
 
-            {/* Customer Care */}
-            <div className="hidden lg:block">
+
+
+                {/* Customer Care */}
+                {/* <div className="hidden lg:block">
               <a href="#" className="text-gray-700 hover:text-gray-900 text-sm">
                 Customer Care
               </a>
-            </div>
+            </div> */}
 
-            {/* Visit AJIOLUXE */}
-            <div className="hidden lg:block">
+                {/* Visit AJIOLUXE */}
+                {/* <div className="hidden lg:block">
               <a
                 href="#"
                 className="bg-black text-white px-4 py-2 text-sm font-medium hover:bg-gray-800 transition-colors duration-200"
               >
                 Visit AJIOLUXE
               </a>
-            </div>
+            </div> */}
 
-            {/* Icons */}
-            <div className="flex items-center space-x-3">
-              <button className="p-2 text-gray-700 hover:text-gray-900">
-                <Heart className="h-5 w-5" />
-              </button>
-              <button className="p-2 text-gray-700 hover:text-gray-900 relative">
-                <ShoppingBag className="h-5 w-5" />
-              </button>
-            </div>
+                {/* Icons */}
+                <div className="flex items-center space-x-3">
+                  <button className="p-2 text-gray-700 hover:text-gray-900 bg-[#2c4152] rounded-full">
+                    <Heart color='#fff' width={10} height={10} className="h-5 w-5" />
+                  </button>
+                  <button className="p-2 text-gray-700 hover:text-gray-900 relative bg-[#2c4152] rounded-full">
+                    <ShoppingBag color='#fff' width={10} height={10} className="h-5 w-5" />
+                  </button>
+                </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
-              >
-                {isMenuOpen ? (
-                  <X className="block h-6 w-6" />
-                ) : (
-                  <Menu className="block h-6 w-6" />
-                )}
-              </button>
+                {/* Mobile menu button */}
+                <div className="md:hidden">
+                  <button
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500"
+                  >
+                    {isMenuOpen ? (
+                      <X className="block h-6 w-6" />
+                    ) : (
+                      <Menu className="block h-6 w-6" />
+                    )}
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
+
+
         </div>
 
         {/* Mobile Navigation Menu */}
