@@ -5,6 +5,8 @@ import Container from "../component/container/Container"
 import FilterBar from "../component/FilterBar/FilterBar"
 import { data } from "../utils/data"
 import ProductCard from "../component/ProductCard/ProductCard"
+import { formatIndianNumber } from "../utils/utils"
+import VerticalBarsUI from "../component/verticalbar/VerticalBar"
 const page = () => {
     console.log(data)
     const [bigInfo, setBigInfo] = useState(false);
@@ -26,7 +28,7 @@ const page = () => {
                 </div>
 
 
-                <div className="w-[80%] p-4">
+                <div className="w-[80%]">
                     <div className="info flex flex-col items-center">
                         <h1>
                             <div className="header1">
@@ -49,12 +51,35 @@ const page = () => {
                                 }}
                             />
                             <div>
-                                <a onClick={hadleInfo} style={{color: '#176d93;'}}>{bigInfo ? 'Show less' :'Show more'}</a>
+                                <a onClick={hadleInfo} style={{color: '#176d93'}}>{bigInfo ? 'Show less' :'Show more'}</a>
                             </div>
                         </div>
                     </div>
-                    <div className="filter-container">
-
+                    <div className="filter-container flex justify-between items-center px-2.5">
+                        <div className="flex items-center gap-1.5 font-medium">
+                            <span>
+                                {formatIndianNumber(data?.pagination.totalResults)}
+                            </span>
+                            <span>
+                                Items found
+                            </span>
+                        </div>
+                        <div className="flex gap-1.5">
+                            <span>GRID</span>
+                            <VerticalBarsUI />
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <span>SORT BY</span>
+                            <div>
+                                <select className="w-full border bg-[#fff] border-gray-300 outline-none">
+                                  {data.sorts.map(el => {
+                                    return (
+                                        <option key={el.code} value={el.code}>{el.name}</option>
+                                    )
+                                  })}
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div className="main-containt">
                                 <div>
@@ -62,7 +87,7 @@ const page = () => {
                                 <div className="ReactVirtualized__Grid__innerScrollContainer Grid_five">
                                         {
                                             data.products.map((product,i) => {
-                                                return <div key={product.code} >
+                                                return <div key={product.code} className="h-[405px]">
                                                     <ProductCard product={product} />
                                                 </div>
                                             })
