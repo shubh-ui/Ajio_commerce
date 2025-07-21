@@ -1,8 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import Navbar from './component/Navbar/Navbar'
-import { Nunito_Sans, Raleway, Roboto_Mono, Lora, Source_Serif_4, Roboto } from 'next/font/google'
-
+import { Nunito_Sans, Lora, Source_Serif_4, Roboto } from 'next/font/google'
+import ReduxProvider from './component/ReduxProvider/ReduxProvider'
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -40,10 +40,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <ReduxProvider>
       <body className={`${source_Serif_4.variable} ${roboto.variable} ${lora.variable}`}>
         <Navbar />  
         {children}
         </body>
+        </ReduxProvider>
     </html>
   )
 }
