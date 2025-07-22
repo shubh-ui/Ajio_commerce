@@ -3,12 +3,13 @@
 import React, { useState } from 'react';
 import { Search, Heart, ShoppingBag, Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'MEN', href: '#' },
+    { name: 'MEN', href: '/products' },
     { name: 'WOMEN', href: '#' },
     { name: 'KIDS', href: '#' },
     { name: 'BEAUTY', href: '#' },
@@ -24,12 +25,14 @@ const Navbar = () => {
             {/* <h1 className="text-3xl font-bold text-gray-900 tracking-wider">
               AJIO
             </h1> */}
+            <Link href="/">
             <Image
               src="/images/Ajio-Logo.svg"
               alt="AJIO"
               width={120}
               height={120}
             />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -47,13 +50,13 @@ const Navbar = () => {
             <div className='flex items-center gap-28'>
               <div className="ml-10 flex justify-between items-baseline space-x-8">
                 {navItems.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
                     href={item.href}
                     className="text-gray-700 hover:text-gray-900 hover:font-bold px-3 py-2 text-sm font-normal transition-all font-source_Serif tracking-wide duration-200"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
               {/* Right side - Search, Auth, Icons */}
